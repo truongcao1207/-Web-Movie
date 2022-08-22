@@ -12,7 +12,7 @@ const TvShows = ({ type = "popular" }) => {
   const [filter, setFilter] = useState("");
   const filterDebounce = useDebounce(filter, 500);
   const [url, setUrl] = useState(
-    `http://api.themoviedb.org/3/tv/${type}?api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=${nextPage}`
+    `https://api.themoviedb.org/3/tv/${type}?api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=${nextPage}`
   );
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
@@ -22,11 +22,11 @@ const TvShows = ({ type = "popular" }) => {
   useEffect(() => {
     if (filterDebounce) {
       setUrl(
-        `http://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query=${filterDebounce}`
+        `https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query=${filterDebounce}`
       );
     } else {
       setUrl(
-        `http://api.themoviedb.org/3/tv/${type}?api_key=3fd2be6f0c70a2a598f084ddfb75487c`
+        `https://api.themoviedb.org/3/tv/${type}?api_key=3fd2be6f0c70a2a598f084ddfb75487c`
       );
     }
   }, [filterDebounce]);
@@ -60,7 +60,7 @@ const TvShows = ({ type = "popular" }) => {
           <div>
             <button className="p-4 bg-primary text-white rounded ">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
+                xmlns="https://www.w3.org/2000/svg"
                 className="h-6 w-6 "
                 fill="none"
                 viewBox="0 0 24 24"

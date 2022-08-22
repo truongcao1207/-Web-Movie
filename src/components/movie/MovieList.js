@@ -10,7 +10,7 @@ import "aos/dist/aos.css";
 const MovieList = ({ type = "now_playing" }) => {
   const [movies, setMovies] = useState([]);
   const { data, error } = useSWR(
-    `http://api.themoviedb.org/3/movie/${type}?api_key=3fd2be6f0c70a2a598f084ddfb75487c`,
+    `https://api.themoviedb.org/3/movie/${type}?api_key=3fd2be6f0c70a2a598f084ddfb75487c`,
     fetcher
   );
   useEffect(() => {

@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 
 const Banner = () => {
   const { data, error } = useSWR(
-    `http://api.themoviedb.org/3/movie/upcoming?api_key=3fd2be6f0c70a2a598f084ddfb75487c`,
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=3fd2be6f0c70a2a598f084ddfb75487c`,
     fetcher
   );
 
@@ -42,7 +42,7 @@ const BannerItem = ({ item }) => {
   } = item;
 
   const { data, error } = useSWR(
-    `http://api.themoviedb.org/3/movie/top_rated?api_key=3fd2be6f0c70a2a598f084ddfb75487c`,
+    `https://api.themoviedb.org/3/movie/top_rated?api_key=3fd2be6f0c70a2a598f084ddfb75487c`,
     fetcher
   );
 

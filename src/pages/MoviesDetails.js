@@ -9,7 +9,7 @@ import { apiKey, fetcher } from "../config";
 const MoviesDetails = () => {
   const { movieId } = useParams();
   const { data, error } = useSWR(
-    `http://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`,
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`,
     fetcher
   );
   if (!data) return null;
@@ -64,7 +64,7 @@ const MoviesDetails = () => {
 const MoviesCreadits = () => {
   const { movieId } = useParams();
   const { data, error } = useSWR(
-    `http://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`,
+    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`,
     fetcher
   );
 
@@ -94,7 +94,7 @@ const MoviesCreadits = () => {
 const MovieVideos = () => {
   const { movieId } = useParams();
   const { data, error } = useSWR(
-    `http://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`,
+    `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`,
     fetcher
   );
 
@@ -129,7 +129,7 @@ const MovieVideos = () => {
 const MoviesSimilar = () => {
   const { movieId } = useParams();
   const { data, error } = useSWR(
-    `http://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${apiKey}`,
+    `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${apiKey}`,
     fetcher
   );
 
