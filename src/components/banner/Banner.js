@@ -41,18 +41,18 @@ const BannerItem = ({ item }) => {
     poster_path,
   } = item;
 
-  const { data, error } = useSWR(
-    `https://api.themoviedb.org/3/movie/top_rated?api_key=3fd2be6f0c70a2a598f084ddfb75487c`,
-    fetcher
-  );
+  // const { data, error } = useSWR(
+  //   `https://api.themoviedb.org/3/movie/top_rated?api_key=3fd2be6f0c70a2a598f084ddfb75487c`,
+  //   fetcher
+  // );
 
   const navigate = useNavigate();
 
   return (
-    <div className="w-full h-full rounded-lg bg-white relative ">
+    <div className="w-full h-full rounded-lg bg-white relative   ">
       <div className="overlay absolute inset-0 bg-gradient-to-t from-gray-900 rounded-lg "></div>
       <img
-        className="w-full h-full object-cover rounded-lg "
+        className="w-full h-full object-cover rounded-lg sm:hidden "
         src={`https://image.tmdb.org/t/p/original/${backdrop_path} `}
         alt=""
       />
@@ -65,11 +65,11 @@ const BannerItem = ({ item }) => {
         data-aos-mirror="true"
         data-aos-once="false"
         data-aos-anchor-placement="top-center"
-        className="absolute left-5 bottom-0 w-full text-white pb-40 flex justify-around "
+        className="absolute left-5 bottom-0 w-full text-white pb-40 flex justify-around sm:flex sm:flex-col-reverse sm:pb-0"
       >
-        <div className="flex flex-col justify-end items-start gap-x-3 mb-8">
+        <div className="flex flex-col justify-end items-start gap-x-3 mb-8 ">
           <h2 className="font-bold text-3xl">{title}</h2>
-          <p className="max-w-[400px]">{overview}</p>
+          <p className="max-w-[400px] sm:hidden">{overview}</p>
           <div className="pt-5 pb-5">
             <span className="py-2 p-4 border border-white rounded ">
               {release_date}
@@ -88,7 +88,7 @@ const BannerItem = ({ item }) => {
 
         <div>
           <img
-            className="w-[350px] h-[500px] object-cover rounded-lg "
+            className="w-[350px] h-[500px] object-cover rounded-lg sm:w-11/12"
             src={`https://image.tmdb.org/t/p/original/${poster_path} `}
             alt=""
           />

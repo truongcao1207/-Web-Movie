@@ -1,8 +1,10 @@
 import { React, useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import useSWR from "swr";
+
 import { fetcher } from "../../config";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -20,7 +22,23 @@ const MovieList = ({ type = "now_playing" }) => {
 
   return (
     <div className="movie-list">
-      <Swiper grabCursor={true} spaceBetween={40} slidesPerView={"auto"}>
+      <Swiper
+        grabCursor={true}
+        // spaceBetween={40}
+        // slidesPerView={4}
+        // className="mySwiper"
+
+        breakpoints={{
+          0: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1023: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+          },
+        }}
+      >
         {movies.length > 0 &&
           movies.map((item) => (
             <SwiperSlide key={item.id}>

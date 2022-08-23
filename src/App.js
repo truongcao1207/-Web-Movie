@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import "swiper/scss";
 

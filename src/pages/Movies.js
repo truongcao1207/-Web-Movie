@@ -77,7 +77,7 @@ const Movies = ({ type = "popular" }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-10 py-10">
+        <div className="grid grid-cols-4 gap-10 py-10 sm:grid-cols-2 ">
           {movies.length > 0 &&
             movies.map((item) => (
               <MovieCard key={v4()} item={item}></MovieCard>

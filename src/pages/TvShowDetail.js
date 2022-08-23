@@ -17,21 +17,21 @@ const TvShowsDetail = () => {
 
   return (
     <>
-      <div className="w-full h-[600px] relative mb-10">
+      <div className="w-full h-[600px] relative mb-10 sm:hidden">
         <div className="absolute inset-0 bg-opacity-25"></div>
         <div
-          className="w-full h-full bg-cover bg-no-repeat opacity-80  "
+          className="w-full h-full bg-cover bg-no-repeat opacity-80 sm:hidden"
           style={{
             backgroundImage: `url(https://image.tmdb.org/t/p/original/${backdrop_path})`,
           }}
         ></div>
       </div>
 
-      <div className="w-full h-[500px] max-w-[800px]  mx-auto -mt-[200px] relative z-10 pb-10 ">
+      <div className="w-full h-[500px] max-w-[800px]  mx-auto -mt-[200px] relative z-10 pb-10 sm:h-[700px] sm:pt-52 ">
         <img
           src={`https://image.tmdb.org/t/p/original/${poster_path}`}
           alt=""
-          className="w-full h-full object-cover rounded-3xl"
+          className="w-full h-full object-cover rounded-3xl sm:top-0"
         />
       </div>
 
@@ -75,7 +75,7 @@ const TvCreadits = () => {
   return (
     <>
       <h2 className="text-center text-2xl mb-10">Cast</h2>
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid grid-cols-4 gap-5 sm:grid-cols-2">
         {cast.slice(0, 4).map((item) => (
           <div className="cast-item" key={item.id}>
             <img
@@ -106,11 +106,12 @@ const TvVideos = () => {
     <div className="py-10">
       <div className="flex flex-col gap-10">
         {results.slice(0, 2).map((item) => (
-          <div key={item.id} className="w-full aspect-video  ">
+          <div key={item.id} className="w-full aspect-video sm:ml-8 ">
             <h2 className="mb-5 text-xl font-medium text-primary">
               {item.name}
             </h2>
             <iframe
+              className="sm:w-5/6 sm:h-5/6 "
               width="1280"
               height="720"
               src={`https://www.youtube.com/embed/${item.key}`}
@@ -140,8 +141,22 @@ const TvSimilar = () => {
   return (
     <>
       <h2 className="text-2xl text pb-4">Similar movie</h2>
-      <div className="movie-list">
-        <Swiper grabCursor={true} spaceBetween={40} slidesPerView={"auto"}>
+      <div className="movie-list sm:pb-5">
+        <Swiper
+          grabCursor={true}
+          spaceBetween={40}
+          slidesPerView={"auto"}
+          breakpoints={{
+            0: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1023: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+            },
+          }}
+        >
           {results.length > 0 &&
             results.map((item) => (
               <SwiperSlide key={item.id}>
